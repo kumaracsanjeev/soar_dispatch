@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} IBM SOAR Dispatcher {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'soar_incident_dispatcher_app/css/layout.css' %}">
+{% endblock %}
+{% block head_extend %}
+{% endblock%}
+{% block body %}
+<div class="html_body">
+    <div class="header_row">
+        <h4> IBM SOAR Dispatcher </h4>
+        
+         <div class="main_header-bar--logout">
+            <button aria-label="Sign Out" class="main_header-bar__logout-action" type="button">
+                <span class="security--profile-image">{{user_first_letter| title}}</span>
+            </button>
+        </div>
+    </div>
+    <!--logout section-->
+    <section class="main_header-bar--logout-section">
+        <div class="main_header-bar--logout-section-profile">
+            <span class="logout-section-profile-image">
+            {{user_first_letter| title}}
+            </span>
+            <span class="logout-section-profile-name">
+                <span>{{user| title}}</span>
+                <span class="user_email">{{email}}</span>
+            </span>
+        </div>
+        <span></span>
+        <div class="main_header-bar--logout-section-logout-link">
+            <a href="{% url 'logout'%}">Sign Out</a>
+        </div>
+
+    </section>
+</div>
+{% include "soar_incident_dispatcher_app/includes/side_panel.html" %}
+<div class="backdrop"></div>
+<script src="{% static 'soar_incident_dispatcher_app/js/logout.js'%}"></script>
+<script src="{% static 'soar_incident_dispatcher_app/js/toggle_menu.js'%}"></script>
+{% endblock%}
+{% block body_extend %}
+{% endblock %}

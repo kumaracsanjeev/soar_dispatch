@@ -1,0 +1,114 @@
+.graph_controls_row_1{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3rem 0rem 0.2rem 3rem;
+
+}
+.graph_controls_row_2, .graph_controls_row_3, .graph_controls_row_4{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0rem 0rem 3rem;
+}
+.graph_1_controls, .graph_2_controls, .graph_4_controls, .graph_5_controls{
+    display: flex;
+    gap: 2rem;
+    background-color: #262626;
+    width: 25vw;
+    border-bottom: solid;
+}
+.graph_3_controls, .graph_6_controls {
+    display: flex;
+    gap: 2rem;
+    background-color: #262626;
+    width: 45vw;
+    border-bottom: solid;
+
+}
+
+.graph_1_controls_zoom, .graph_2_controls_zoom, .graph_3_controls_zoom, .graph_4_controls_zoom, .graph_5_controls_zoom, .graph_6_controls_zoom, .graph_1_controls_download,
+.graph_2_controls_download, .graph_3_controls_download, .graph_4_controls_download, .graph_5_controls_download, .graph_6_controls_download, .graph_7_controls_zoom, .graph_7_controls_download, .graph_8_controls_zoom, .graph_8_controls_download {
+    background: transparent;
+    border: none;
+    margin-left: 0.5rem;
+    padding: 5px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.graph_1_controls_zoom:hover, .graph_2_controls_zoom:hover, .graph_3_controls_zoom:hover, .graph_4_controls_zoom:hover, .graph_5_controls_zoom:hover, .graph_6_controls_zoom:hover, .graph_1_controls_download:hover, .graph_7_controls_zoom:hover, .graph_7_controls_download:hover, .graph_8_controls_zoom:hover, .graph_8_controls_download:hover {
+    cursor: pointer;
+}
+
+.ra--zoom__icon, .ra--download__icon {
+    fill: #ffffff;
+    height: 20px;
+    width: 20px;
+}
+
+.graphs_section_1, .graphs_section_2, .graphs_section_3, .graphs_section_4 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0rem 0rem 0rem 3rem;
+}
+.chart-container-all_incident_count{
+    position: relative;
+    width: 10vw;
+    height: 10vh;
+    background-color: #262626;
+}
+
+.chart-container-pie_1, .chart-container-pie_2, .chart-container-line, .chart-container-line_1{
+    position: relative;
+    width: 25vw;
+    height: 38vh;
+    background-color: #262626;
+
+}
+.chart-container-bar, .chart-container-line_2{
+    position: relative;
+    width: 45vw;
+    height: 38vh;
+    background-color: #262626;
+}
+
+
+#donutchart {
+    width: 49%;
+    height: 29rem;
+}
+
+#top_x_div {
+    width: 49%;
+    height: 24rem;
+}
+
+#bar_chart {
+    width: 49%;
+    height: 24rem;
+}
+
+#regions_div {
+    width: 49%;
+    height: 24rem;
+}
+
+#chart_div{
+    width: 49%;
+    height: 24rem;
+}
+
+#stepped_area_chart_div{
+    width: 49%;
+    height: 24rem;
+}
+
+#curve_chart{
+    width: 49%;
+    height: 24rem;
+}

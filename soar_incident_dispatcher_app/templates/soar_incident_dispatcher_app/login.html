@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %} IBM SOAR Dispatcher{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'soar_incident_dispatcher_app/css/login_page.css' %}">
+{% endblock%}
+
+{% block body%}
+<div class="login_page_body">
+    <div class="login_page_body_image">
+        <img class="login_image" src="{% static 'soar_incident_dispatcher_app/images/login-img.png'%}" alt="login images">
+    </div>
+
+    <div class="login_page_body_login_form_elements">
+        <h1 class="login_page_body_login_form_text">Log in to IBM SOAR Incident Dispatcher</h1>
+        <form method="POST" action="{% url 'login_url' %}">
+            {% csrf_token %}
+        <div class="login_page_body_login_form_submit_btn">
+            <button type="submit"> Login</button>
+        </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
+

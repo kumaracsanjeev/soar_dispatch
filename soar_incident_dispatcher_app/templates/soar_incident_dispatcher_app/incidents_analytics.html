@@ -1,0 +1,267 @@
+{% extends "soar_incident_dispatcher_app/layout.html" %}
+{% load static %}
+{% block head_extend %}
+<link rel="stylesheet" href="{% static 'soar_incident_dispatcher_app/css/inc_analytics.css'%}">
+<script src="{% static 'soar_incident_dispatcher_app/js/chart.js'%}"></script>
+{% endblock %}
+{% block body_extend %}
+<!--TOP GRAPHS ROW GRAPHS AND CONTROLS-->
+<div class="graph_controls_row_1">
+    <div class="graph_1_controls">
+        <button class="graph_1_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_1_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+    <div class="graph_2_controls">
+        <button class="graph_2_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_2_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+    <div class="graph_3_controls">
+        <button class="graph_3_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_3_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+</div>
+
+<div class="graphs_section_1">
+    <div class="chart-container-pie_1">
+        <canvas id="myPieChart_1"></canvas>
+    </div>
+
+    <div class="chart-container-pie_2">
+        <canvas id="myBarChart"></canvas>
+    </div>
+    <div class="chart-container-bar">
+        <canvas id="myBarChart_1"></canvas>
+    </div>
+</div>
+<!--SECOND GRAPHS ROW-->
+<div class="graph_controls_row_2">
+    <div class="graph_4_controls">
+        <button class="graph_4_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_4_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+    <div class="graph_5_controls">
+        <button class="graph_5_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_5_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+    <div class="graph_6_controls">
+        <button class="graph_6_controls_zoom">
+            {% include "soar_incident_dispatcher_app/includes/zoom_option.html" %}
+        </button>
+        <div class="graph_6_controls_download">
+            {% include "soar_incident_dispatcher_app/includes/chart_download.html" %}
+        </div>
+    </div>
+</div>
+<div class="graphs_section_2">
+    
+    <div class="chart-container-line">
+        <canvas id="myLineChart"></canvas>
+    </div>
+    <div class="chart-container-line_1">
+        <canvas id="myLineChart_1"></canvas>
+    </div>
+    <div class="chart-container-line_2">
+        <canvas id="myLineChart_2"></canvas>
+    </div>
+</div>
+<div class="backdrop"></div>
+<script>
+    const labels = [
+    {% for key in inc_cnt_by_inst.keys %}
+        "{{key}}",
+    {% endfor %}];
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Active Incidents By Instance',
+        backgroundColor: [
+        'rgb(114, 69, 217)',
+        'rgb(69, 133, 217)',
+        'rgb(217, 69, 76)',
+        'rgb(160, 69, 217)',
+        'rgb(69, 111, 217)',
+        'rgb(69, 190, 217)',
+        'rgb(69, 217, 116)',
+        "rgb(235, 209, 16)",
+        "rgb(52, 163, 46)",
+        "rgb(59, 163, 123)",
+        "rgb(59, 104, 163)",
+        "rgb(80, 59, 163)",
+        "rgb(163, 59, 160)"],
+        borderColor: 'rgb(61, 60, 60)',
+        data: [
+            {% for value in inc_cnt_by_inst.values %}
+                {{value}},
+            {% endfor %}
+        ],
+    }]
+    };
+    const config = {
+    type: 'doughnut',
+    data: data,
+    options: {
+        onClick: function clickHandler (evt, el, chart) {
+            const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            console.log(chart)
+            if (activePoints.length) {
+                const firstPoint = activePoints[0];
+                var label = chart.data.labels[firstPoint.index];
+                var value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+                var redirect_url  = "";
+                window.location = redirect_url
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{legend:{position: 'bottom', labels:{color: "white", pointStyle: "rect", usePointStyle: true}},title: {display: true,text:'Active Incidents By Instance', color: "white"}},
+    }
+        };
+
+    var myChart = new Chart(
+        document.getElementById('myPieChart_1'),
+        config
+    );    
+</script>
+<script>
+    const labels_1 = [
+    {% for key in inc_cnt_by_sev.keys %}
+        "{{key}}",
+    {% endfor %}];
+    const data_1 = {
+    labels: labels_1,
+    datasets: [{
+        label: 'Incidents by Severity',
+        backgroundColor: [
+        'rgb(114, 69, 217)',
+        'rgb(69, 133, 217)',
+        'rgb(217, 69, 76)',
+        'rgb(160, 69, 217)',
+        'rgb(69, 111, 217)',
+        'rgb(69, 190, 217)',
+        'rgb(69, 217, 116)',
+        "rgb(235, 209, 16)",
+        "rgb(52, 163, 46)",
+        "rgb(59, 163, 123)",
+        "rgb(59, 104, 163)",
+        "rgb(80, 59, 163)",
+        "rgb(163, 59, 160)"],
+        borderColor: 'rgb(61, 60, 60)',
+        data: [
+            {% for value in inc_cnt_by_sev.values %}
+                {{value}},
+            {% endfor %}
+        ],
+    }]
+    };
+
+    const config_1 = {
+    type: 'bar',
+    data: data_1,
+    options: {
+        onClick: function clickHandler (evt, el, chart) {
+            const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            console.log(chart)
+            if (activePoints.length) {
+                const firstPoint = activePoints[0];
+                var label = chart.data.labels[firstPoint.index];
+                var value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+                var redirect_url  = "";
+                window.location = redirect_url
+            }
+            
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{legend:{position: 'bottom'},title: {display: true,text:'Incidents by Severity'}},
+    }
+        };
+
+    var myChart = new Chart(
+        document.getElementById('myBarChart'),
+        config_1
+    );    
+</script>
+<script>
+    const labels_2 = [
+    {% for key in inc_cnt_by_phase.keys %}
+        "{{key}}",
+    {% endfor %}];
+    const data_2 = {
+    labels: labels_2,
+    datasets: [{
+        label: 'Incidents by Phase',
+        backgroundColor: [
+        'rgb(114, 69, 217)',
+        'rgb(69, 133, 217)',
+        'rgb(217, 69, 76)',
+        'rgb(160, 69, 217)',
+        'rgb(69, 111, 217)',
+        'rgb(69, 190, 217)',
+        'rgb(69, 217, 116)',
+        "rgb(235, 209, 16)",
+        "rgb(52, 163, 46)",
+        "rgb(59, 163, 123)",
+        "rgb(59, 104, 163)",
+        "rgb(80, 59, 163)",
+        "rgb(163, 59, 160)"],
+        borderColor: 'rgb(61, 60, 60)',
+        data: [
+            {% for value in inc_cnt_by_phase.values %}
+                {{value}},
+            {% endfor %}
+        ],
+    }]
+    };
+
+    const config_2 = {
+    type: 'bar',
+    data: data_2,
+    options: {
+        onClick: function clickHandler (evt, el, chart) {
+            const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+            console.log(chart)
+            if (activePoints.length) {
+                const firstPoint = activePoints[0];
+                var label = chart.data.labels[firstPoint.index];
+                var value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+                var redirect_url  = "";
+                window.location = redirect_url
+            }
+            
+        },
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{legend:{position: 'bottom'},title: {display: true,text:'Incidents by Phase'}},
+    }
+        };
+
+    var myChart = new Chart(
+        document.getElementById('myBarChart_1'),
+        config_2
+    );    
+</script>
+
+<script src="{% static 'soar_incident_dispatcher_app/js/graph_controls.js'%}"></script>
+<script src="{% static 'soar_incident_dispatcher_app/js/toggle_menu.js'%}"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="complete_html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Page Title {% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+    <!--
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    -->
+    <link rel="stylesheet" href = "{% static 'soar_incident_dispatcher_app/css/base.css' %}">
+    <!-- Bootstrap -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+
+    {% block csv_file_link %}
+    {% endblock %}
+    {% block head %}{% endblock %}
+    {% block head_extend %}{% endblock %}
+</head>
+<body class="main_body">
+{% block body %}{% endblock%}
+{% block body_extend %}{% endblock%}
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<!-- Bootstrap JS Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+{% block footer %}
+<footer>
+    <div class="footer">
+        <p>&copy; Copyright IBM Corporation 2022</p>
+    </div>
+</footer>
+{% endblock %}
+</html>

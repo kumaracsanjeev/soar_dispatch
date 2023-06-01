@@ -1,0 +1,101 @@
+.login_page_body {
+    display: flex;
+    flex-flow: row-reverse;
+    align-content: center;
+    width: 100%;
+    height:100%;
+    background-color: #161616;
+    height: 100%;
+}
+
+.login_page_body_image {
+    display:flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: #393939;
+    width: 60%;
+    height: 100%;
+}
+
+.login_image {
+    display: flex;
+    position: absolute;
+    top: 20rem;
+    left: 20rem;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.login_page_body_login_form_elements {
+    display: flex;
+    position: absolute;
+    left: 11.5rem;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 15px 0px #626161;
+    padding: 50px;
+    top: 27rem;
+    border-radius: 10px;
+}
+
+.login_page_body_login_form_text {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+
+.login_page_body_login_form_submit_btn {
+    margin-top: 15px;
+
+
+}
+
+.login_page_body_login_form_submit_btn button {
+    min-width: 9em;
+    text-align: center !important;
+    background-color: var(--interactive-01,#0f62fe);
+    color: var(--text-04,#fff);
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    letter-spacing: .16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    vertical-align: top;
+    flex-shrink: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 3px) 60px calc(.875rem - 3px) 12px;
+    border-radius: 0;
+    text-align: left;
+    text-decoration: none;
+    transition: 70ms cubic-bezier(0,0,.38,.9);
+    outline: 0;
+    position: relative;
+    max-width: 20rem;
+    border-radius: 5px;
+    padding-left: 50px;
+}
+
+.login_page_body_login_form_elements label {
+    color: white;
+    display: block;
+}
+
+.login_page_body_login_form_elements button:hover,
+.login_page_body_login_form_elements button:active{
+    cursor: pointer;
+   /* background-color: var(--active-primary,#002d9c);*/
+   background: red;
+}

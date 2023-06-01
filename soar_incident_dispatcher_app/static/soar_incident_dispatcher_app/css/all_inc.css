@@ -1,0 +1,120 @@
+.html_body_2 {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row;
+    align-items: center;
+    color: #fff;
+}
+.html_body_cust_lst, .html_body_cust_dtl{
+    height: calc(100vh - 3rem);
+    overflow: auto;
+}
+.html_body_cust_lst{
+    /*flex: 0.5 0 0%;*/
+    /*border-right: 0.1rem solid #0f62fe;*/
+    width: 24rem;
+    background-color: #262626;
+}
+
+.html_body_cust_lst_itms{
+    margin-left: 1rem;
+}
+.html_body_cust_dtl{
+    flex: 2 0 0%;
+}
+
+.html_body_sec_tle {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: #6f6f6f;
+    padding: 1rem 0rem 1rem 0rem;
+    /*border-bottom: 0.1rem solid #0f62fe;*/
+}
+.html_body_sec_tle_dtl_table{
+    position: fixed !important;
+    width: 100%;
+    margin: 0rem 0rem 0rem 0.2rem !important;
+    z-index: 1;
+}
+
+li{
+    list-style: none;
+    margin: 1rem 0rem 1rem 0rem;
+    font-size: 1.3rem;
+}
+.inst_optn:hover, .active_ele:hover {
+    cursor: pointer;
+    border-left: 0.2rem solid #0f62fe;
+    background-color: #393939;
+    margin: 1rem 0rem 1rem 0rem;
+}
+.active_ele, .inst_optn:visited, .linst_optn:active{
+    font-weight: bold;
+    background-color: #393939; 
+    border-left: 0.3rem solid #0f62fe;
+}
+.html_body_sec_table_div{
+    margin: 4.2rem 0rem 0rem 3rem;
+    overflow-x:auto; 
+    overflow-y:auto;
+}
+
+table {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #262626;
+    background-color: #262626 !important;
+}
+
+thead{
+    background-color: #393939;
+}  
+th, td {
+    text-align: left !important;
+    padding: 8px !important;
+    width: inherit !important;}
+  
+  tr {
+    height: 4rem;
+    border-bottom: 0.1rem solid #393939;
+  }
+
+.html_body_sec_table_clmn_name{
+    width: 25rem;
+}
+.html_body_sec_table_head_name{
+    text-align: left;
+}
+
+#incident_data{
+    display: none;
+}
+ /* tr:nth-child(even){background-color: #262626}*/
+
+h4{
+    color: #fff;
+}
+
+label {
+    color: #fff;
+}
+select {
+	color: #fff;
+}
+
+input {
+	color: #fff;
+}
+.odd, .even{
+    color: #000;
+}
+
+#tableID_info {
+	color: #fff;
+}
+

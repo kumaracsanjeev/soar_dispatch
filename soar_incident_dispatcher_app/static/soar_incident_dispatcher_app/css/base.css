@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+
+html, body {
+    padding: 0rem;
+    width: 100%;
+    margin: 0rem;
+}
+.main_body {
+    font-family: 'Times', serif;
+    background-color: #161616;
+    height: 100%;
+}
+
+.footer {
+  bottom: 0px;
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 25vw;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  width: 50%;
+  color: white;
+}
+
+.footer p {
+  margin: 10px;
+}
+
+h1 {
+color: white;
+align-content: center;
+}
+
+@media only screen and (min-width: 640px) {
+    .main_body {
+      margin: 0rem;
+    }
+    .login_page_body_image{
+      width: 30%;
+      height: 30%;
+    }
+  }
+
+@media only screen and (max-width: 1440px) {
+    .main_body {
+        margin: 0rem;
+      }
+}
