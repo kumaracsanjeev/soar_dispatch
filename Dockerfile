@@ -6,6 +6,7 @@ ENV DB_PASSWORD=redhat123
 ENV DB_HOST=172.30.138.64
 ENV DB_NAME=persistentdb
 ENV DB_PORT=5432
+ENV IS_DEVELOPMENT=False
 USER root
 RUN apt update && apt install -y gcc nano libpq-dev python-dev && apt install -y nginx
 RUN pip install --upgrade pip
