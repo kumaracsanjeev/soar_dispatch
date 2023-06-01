@@ -29,9 +29,10 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-(2y4k^qnqwv52zi0$z6
 DEBUG = eval(os.getenv("IS_DEVELOPMENT", "True"))
 
 # In Production we needs to comma seperated values. 
-ALL_HOSTS = os.getenv("ALLOWED_HOSTS", ["*"])
 if os.getenv("ALLOWED_HOSTS"):
-    ALLOWED_HOSTS = ALL_HOSTS.split(",")
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+else:
+    ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
