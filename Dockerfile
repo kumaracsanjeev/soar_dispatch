@@ -2,9 +2,9 @@ FROM python:3.8-slim-buster
 ENV PYTHONUNBUFFERED 1
 ENV DB_USER=redhat 
 ENV DB_PASSWORD=redhat123 
-ENV DB_DATABASE=persistentdb 
+#ENV DB_DATABASE=persistentdb 
 ENV DB_HOST= "172.30.138.64"  
-ENV DB_NAME=postgresql-persistent 
+ENV DB_NAME=persistentdb
 ENV DB_PORT=5432
 USER root
 RUN apt update && apt install -y gcc nano libpq-dev python-dev && apt install -y nginx
