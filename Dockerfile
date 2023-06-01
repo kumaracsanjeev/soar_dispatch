@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 ENV DB_USER=redhat 
 ENV DB_PASSWORD=redhat123 
 ENV DB_DATABASE=persistentdb 
-ENV DB_HOST=postgresql  
+ENV DB_HOST=10.8.0.64  
 ENV DB_NAME=postgresql-persistent 
 ENV DB_PORT=5432
 USER root
